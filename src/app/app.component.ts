@@ -7,7 +7,21 @@ import { faTimes, faCheck } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'demo-todolist'
+  title: string = 'demo-todolist'
   faTimes = faTimes
   faCheck = faCheck
+  toDoList: { title: string, done: boolean }[] = [
+    {
+      title: 'Title',
+      done: false
+    },
+    {
+      title: 'Title2',
+      done: true
+    },
+    {
+      title: 'Title3',
+      done: false
+    }
+  ]
 }
