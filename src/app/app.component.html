@@ -32,52 +32,17 @@
   </div>
   <div class="row">
     <ul class="striped-list list-group col-12 p-0 rounded-0">
-      <li class="list-group-item pl-0 pr-4 d-flex">
+      <li *ngFor="let item of toDoList;let index=index;" [ngClass]="{'bg-secondary': item.done}"
+        class="list-group-item pl-0 pr-4 d-flex">
         <div class="d-flex">
-          <!-- <div>
-            <fa-icon [icon]="faCheck" class="px-3"></fa-icon>
-            <del class="">test1</del>
-          </div> -->
-          <span class="pl-5">test1</span>
-        </div>
-        <button type="button" class="close ml-auto">
-          <fa-icon [icon]="faTimes" class=""></fa-icon>
-        </button>
-      </li>
-      <li class="list-group-item pl-0 pr-4 d-flex bg-secondary">
-        <div class="d-flex">
-          <div>
+          <div *ngIf="item.done">
             <fa-icon [icon]="faCheck" class="px-3 text-light"></fa-icon>
-            <del class="text-white">test1</del>
+            <del class="text-white">{{ item.title }}</del>
           </div>
-          <!-- <span class="pl-5">test1</span> -->
+          <span *ngIf="!item.done" class="pl-5">{{ item.title }}</span>
         </div>
-        <button type="button" class="close ml-auto text-white opacity-1">
-          <fa-icon [icon]="faTimes"></fa-icon>
-        </button>
-      </li>
-      <li class="list-group-item pl-0 pr-4 d-flex">
-        <div class="d-flex">
-          <!-- <div>
-            <fa-icon [icon]="faCheck" class="px-3"></fa-icon>
-            <del class="">test1</del>
-          </div> -->
-          <span class="pl-5">test1</span>
-        </div>
-        <button type="button" class="close ml-auto">
+        <button [ngClass]="{'text-white': item.done, 'opacity-1': item.done}" type="button" class="close ml-auto">
           <fa-icon [icon]="faTimes" class=""></fa-icon>
-        </button>
-      </li>
-      <li class="list-group-item pl-0 pr-4 d-flex ">
-        <div class="d-flex">
-          <!-- <div>
-            <fa-icon [icon]="faCheck" class="px-3 text-light"></fa-icon>
-            <del class="text-white">test1</del>
-          </div> -->
-          <span class="pl-5">test1</span>
-        </div>
-        <button type="button" class="close ml-auto text-white opacity-1">
-          <fa-icon [icon]="faTimes"></fa-icon>
         </button>
       </li>
     </ul>
