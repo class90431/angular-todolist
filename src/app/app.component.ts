@@ -27,4 +27,7 @@ export class AppComponent {
   removeToDo(index: number): void {
     this.toDoList.splice(index, 1)
   }
+  doneToDo(item) {
+    item.done = !item.done
+  }
 }
