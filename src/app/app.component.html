@@ -43,7 +43,7 @@
           </div>
           <span *ngIf="!item.done" class="pl-5">{{ item.title }}</span>
         </div>
-        <button [ngClass]="{'text-white': item.done, 'opacity-1': item.done}" type="button" class="close ml-auto">
+        <button (click)="removeToDo(index)" [ngClass]="{'text-white': item.done, 'opacity-1': item.done}" type="button" class="close ml-auto">
           <fa-icon [icon]="faTimes" class=""></fa-icon>
         </button>
       </li>
