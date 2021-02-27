@@ -10,18 +10,18 @@ export class AppComponent {
   title: string = 'demo-todolist'
   faTimes = faTimes
   faCheck = faCheck
-  toDoList: { title: string, done: boolean }[] = [
-    {
-      title: 'Title',
-      done: false
-    },
-    {
-      title: 'Title2',
-      done: true
-    },
-    {
-      title: 'Title3',
-      done: false
+  toDoList: { title: string, done: boolean }[] = []
+  cacheTitle: string = ''
+
+  addToDo(): void {
+    if (this.cacheTitle.trim().length === 0) {
+      alert('請填寫代辦事項喔！')
+      return
     }
-  ]
+    this.toDoList.push({
+      title: this.cacheTitle,
+      done: false
+    })
+    this.cacheTitle = ''
+  }
 }
