@@ -24,4 +24,7 @@ export class AppComponent {
     })
     this.cacheTitle = ''
   }
+  removeToDo(index: number): void {
+    this.toDoList.splice(index, 1)
+  }
 }
