@@ -10,7 +10,20 @@ export class AppComponent {
   title: string = 'demo-todolist'
   faTimes = faTimes
   faCheck = faCheck
-  toDoList: { title: string, done: boolean }[] = []
+  toDoList: { title: string, done: boolean }[] = [
+    {
+      title: 'demo0',
+      done: false
+    },
+    {
+      title: 'demo1',
+      done: false
+    },
+    {
+      title: 'demo2',
+      done: true
+    }
+  ]
   cacheTitle: string = ''
 
   addToDo(): void {
@@ -26,5 +39,8 @@ export class AppComponent {
   }
   removeToDo(index: number): void {
     this.toDoList.splice(index, 1)
+  }
+  doneToDo(item) {
+    item.done = !item.done
   }
 }

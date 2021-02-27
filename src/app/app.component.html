@@ -16,6 +16,10 @@
 
   }
 
+  .cursor-pointer {
+    cursor: pointer;
+  }
+
 </style>
 
 <div class="container">
@@ -35,15 +39,16 @@
   <div class="row">
     <ul class="striped-list list-group col-12 p-0 rounded-0">
       <li *ngFor="let item of toDoList;let index=index;" [ngClass]="{'bg-secondary': item.done}"
-        class="list-group-item pl-0 pr-4 d-flex">
-        <div class="d-flex">
+        (click)="doneToDo(item)" class="list-group-item pl-0 pr-4 d-flex cursor-pointer">
+        <div class="d-flex align-items-center">
           <div *ngIf="item.done">
             <fa-icon [icon]="faCheck" class="px-3 text-light"></fa-icon>
             <del class="text-white">{{ item.title }}</del>
           </div>
           <span *ngIf="!item.done" class="pl-5">{{ item.title }}</span>
         </div>
-        <button (click)="removeToDo(index)" [ngClass]="{'text-white': item.done, 'opacity-1': item.done}" type="button" class="close ml-auto">
+        <button (click)="removeToDo(index)" [ngClass]="{'text-white': item.done, 'opacity-1': item.done}" type="button"
+          class="close ml-auto p-2">
           <fa-icon [icon]="faTimes" class=""></fa-icon>
         </button>
       </li>
